@@ -18,14 +18,14 @@ class Alarm(QWidget):
         self._stopWindow = StopAlarmWindow()
         self._stopWindow.stopAlarm.connect(self.stop)
 
-    def startTimer(self, time):
+    def startTimer(self, time: int) -> None:
         self._timer.start(time*1000)
 
-    def onTimerTimeout(self):
+    def onTimerTimeout(self) -> None:
         self._timer.stop()
         self._sound.play()
         self._stopWindow.show()
 
-    def stop(self):
+    def stop(self) -> None:
         self._sound.stop()
         self._stopWindow.close()
