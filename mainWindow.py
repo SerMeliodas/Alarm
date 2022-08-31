@@ -1,5 +1,5 @@
-from PySide6.QtWidgets import (QMainWindow, QWidget, QLineEdit,
-                               QGridLayout, QPushButton, QDateTimeEdit)
+from PySide6.QtWidgets import (QLabel, QMainWindow, QWidget, QGridLayout,
+                               QPushButton, QDateTimeEdit)
 from alarm import Alarm
 
 
@@ -14,6 +14,8 @@ class MainWindow(QMainWindow):
         self.centralWidget.setLayout(self.mainLayout)
         self.setCentralWidget(self.centralWidget)
 
+        self.timeLeft = QLabel()
+        self.timeLeft.setText(u"Time left: 0")
         self.dateInput = QDateTimeEdit()
         self.dateInput.setDisplayFormat("HH:mm")
         self.alarmWidget = Alarm(self)
